@@ -1,0 +1,13 @@
+venv
+\varios
+/varios
+varios
+*.code-workspace
+/__pycache__/
+\__pycache__\
+__pycache__
+superUser.txt
+db.sqlite3
+.idea
+.DS_Store
+Entrega1-Perez-Botti.code-workspace
