@@ -20,6 +20,14 @@ class Category(TimestampedModel, models.Model):
     def __str__(self):
         return self.name 
     
-class Curiosidades(models.Model):
-    title = models.CharField(max_length=50)
+class Curiosity(TimestampedModel, models.Model):
+    title = models.CharField(max_length=50, blank=False, null=False)
+    subtitle = models.CharField(max_length=50, blank=False, null=False)
     content = models.TextField()
+
+    class Meta:
+        verbose_name = _('Curiosity')
+        verbose_name_plural = _('Curiosities')
+
+    def __str__(self):
+        return self.title 
