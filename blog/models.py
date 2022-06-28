@@ -30,4 +30,4 @@ class Curiosity(TimestampedModel, models.Model):
         verbose_name_plural = _('Curiosities')
 
     def __str__(self):
-        return self.title 
+        return self.title
