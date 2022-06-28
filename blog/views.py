@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
 from blog.models import Curiosity
@@ -32,7 +32,7 @@ def curiosidades(request):
             curiosidad = Curiosity(title=data['titulo'], subtitle=data['subtitulo'], content=data['contenido'])
             curiosidad.save()
             
-            return render(request, "blog/index.html")
+            return redirect("inicio")
 
     else:
         formulario = CuriosidadesForm()
