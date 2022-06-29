@@ -19,23 +19,33 @@ def hardware(request):
     return render(request, "blog/hardware.html")
 
 def curiosidades(request):
+    
+    curiosidades = Curiosity.objects.all()
+        
+    return render(request, "blog/curiosidades.html",{"curiosidades":curiosidades})
+
+def nueva_publicacion(request):
 
     if request.method == 'POST':
 
-        formulario = CuriosidadesForm(request.POST)
-
-        print(formulario)
-
+        formulario = NuevaPublicacion(request.POST)
+        
         if formulario.is_valid():
-            data = formulario.cleaned_data
-
-            curiosidad = Curiosity(title=data['titulo'], subtitle=data['subtitulo'], content=data['contenido'])
-            curiosidad.save()
             
-            return redirect("inicio")
-
+            info_publicacion = formulario.cleaned_data
+        
+            publicacion = Curiosity(title=info_publicacion['titulo'], content=info_publicacion['contenido'])
+        
+            publicacion.save()
+        
+            return redirect("curiosidades")
+        else:
+            return redirect("nueva_publicacion")
     else:
-        formulario = CuriosidadesForm()
-    
-    return render(request, "blog/curiosidades.html" ,{'curiosidades':formulario})
 
+        formularioVacio = NuevaPublicacion()
+
+        return render(request, "blog/nueva_publicacion.html" ,{"form":formularioVacio})
+
+def buscar_publicacion(request):
+    pass

@@ -7,10 +7,12 @@ Curiosidades - Blog
 
 {% block  contenidoPagina%}
 <!-- Page Content-->
-<form action="" method="post">{% csrf_token %}
-    <p>Titulo: <input type="text" name="titulo" maxlength="50"></p>
-    <p>Subtitulo: <input type="text" name="subtitulo" maxlength="50"></p>
-    <p>Contenido: <input type="text" name="contenido"></p>
-    <input type="submit" value="Enviar">
-</form>
+{% for curiosidad in curiosidades %}
+<div>
+    <p>{{curiosidad.title}}</p>
+    <p>{{curiosidad.content}}</p>
+</div>
+{% endfor %}
+<a href="../nueva_publicacion">Nueva publicacion</a>
+
 {% endblock %}

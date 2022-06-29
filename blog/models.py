@@ -21,8 +21,7 @@ class Category(TimestampedModel, models.Model):
         return self.name 
     
 class Curiosity(TimestampedModel, models.Model):
-    title = models.CharField(max_length=50, blank=False, null=False)
-    subtitle = models.CharField(max_length=50, blank=False, null=False)
+    title = models.CharField(max_length=150, blank=False, null=False)
     content = models.TextField()
 
     class Meta:

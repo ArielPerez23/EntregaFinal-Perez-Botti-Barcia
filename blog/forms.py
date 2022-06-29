@@ -1,6 +1,5 @@
 from django import forms
 
-class CuriosidadesForm(forms.Form):
-    titulo=forms.CharField()
-    subtitulo=forms.CharField()
+class NuevaPublicacion(forms.Form):
+    titulo=forms.CharField(max_length=150)
     contenido=forms.CharField()

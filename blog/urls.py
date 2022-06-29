@@ -11,5 +11,5 @@ urlpatterns = [
     path('software/', software, name= "software"),
     path('hardware/', hardware, name= "hardware"),
     path('curiosidades/', curiosidades, name= "curiosidades"),
-    
+    path('nueva_publicacion/', nueva_publicacion, name="nueva_publicacion"),
 ]
