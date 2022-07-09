@@ -22,5 +22,4 @@ urlpatterns = [
     
     #URLS BLOG
     path('blog/', include('blog.urls')),
-    path('', inicio),
 ]

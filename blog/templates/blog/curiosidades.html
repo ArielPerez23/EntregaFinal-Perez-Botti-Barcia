@@ -8,11 +8,14 @@ Curiosidades - Blog
 {% block  contenidoPagina%}
 <!-- Page Content-->
 {% for curiosidad in curiosidades %}
-<div>
-    <p>{{curiosidad.title}}</p>
-    <p>{{curiosidad.content}}</p>
+<div class="card w-50">
+    <div class="card-body">
+        <h5 class="card-title">{{curiosidad.title}}</h5>
+        <p class="card-text">{{curiosidad.content}}</p>
+        <a href="#" class="btn btn-primary">Ver mas</a>
+    </div>
 </div>
 {% endfor %}
-<a href="../nueva_publicacion">Nueva publicacion</a>
+<a href="../nueva_publicacion" class="btn btn-outline-primary">Nueva publicacion</a>
 
 {% endblock %}

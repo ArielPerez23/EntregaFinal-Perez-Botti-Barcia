@@ -30,6 +30,8 @@ def nueva_publicacion(request):
 
         formulario = NuevaPublicacion(request.POST)
         
+        print(formulario)
+        
         if formulario.is_valid():
             
             info_publicacion = formulario.cleaned_data
