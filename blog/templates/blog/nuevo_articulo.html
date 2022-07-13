@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block  tituloPagina%}
+Nuevo Articulo - Blog
+{% endblock  %}
+
+{% block  contenidoPagina%}
+<title>TecnologiBLOG</title>
+
+<!-- Page Content-->
+<form action="" method="post">{% csrf_token %}
+    {{form.as_p}}
+
+    <input type="submit" value="Crear articulo">
+
+</form>
+
+
+{% endblock %}

@@ -1,9 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-
-
-
-from .forms import *
+from .models import Article
+from .forms import NewArticle
 
 
 def inicio(request):
@@ -18,36 +16,34 @@ def hardware(request):
     
     return render(request, "blog/hardware.html")
 
-# def curiosidades(request):
+def curiosidades(request):
     
-#     curiosidades = Curiosity.objects.all()
+    curiosidades = Article.objects.all()
         
-#     return render(request, "blog/curiosidades.html",{"curiosidades":curiosidades})
+    return render(request, "blog/curiosidades.html",{"curiosidades":curiosidades})
 
-def nueva_publicacion(request):
+def nuevo_articulo(request):
 
+    #post
     if request.method == 'POST':
 
-        formulario = NuevaPublicacion(request.POST)
-        
-        print(formulario)
+        formulario = NewArticle(request.POST)
         
         if formulario.is_valid():
             
-            info_publicacion = formulario.cleaned_data
+            info_articulo = formulario.cleaned_data
         
-            #publicacion = Curiosity(title=info_publicacion['titulo'], content=info_publicacion['contenido'])
+            articulo = Article(title=info_articulo["title"],subtitle=info_articulo["subtitle"],body=info_articulo["body"])
         
-            #publicacion.save()
+            articulo.save()
         
             return redirect("curiosidades")
-        else:
-            return redirect("nueva_publicacion")
-    else:
+        
+        return redirect("nuevo_articulo")
 
-        formularioVacio = NuevaPublicacion()
+    #get
+    formularioVacio = NewArticle()
+    return render(request, "blog/nuevo_articulo.html",{"form":formularioVacio})
 
-        return render(request, "blog/nueva_publicacion.html" ,{"form":formularioVacio})
-
-def buscar_publicacion(request):
+def buscar_articulo(request):
     pass
