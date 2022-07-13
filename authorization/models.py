@@ -14,7 +14,8 @@ class User(AbstractUser):
 
     email = models.EmailField(_('email address'), unique=True)
     objects = UserManager()
-    
+
+
 # Funcion para definir un usuario random para el modelo.
 def random_username(sender, instance, **kwargs):
     if not instance.username:
