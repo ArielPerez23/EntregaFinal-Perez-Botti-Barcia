@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from blog.models import Curiosity
+
 
 from .forms import *
 
@@ -18,11 +18,11 @@ def hardware(request):
     
     return render(request, "blog/hardware.html")
 
-def curiosidades(request):
+# def curiosidades(request):
     
-    curiosidades = Curiosity.objects.all()
+#     curiosidades = Curiosity.objects.all()
         
-    return render(request, "blog/curiosidades.html",{"curiosidades":curiosidades})
+#     return render(request, "blog/curiosidades.html",{"curiosidades":curiosidades})
 
 def nueva_publicacion(request):
 
@@ -36,9 +36,9 @@ def nueva_publicacion(request):
             
             info_publicacion = formulario.cleaned_data
         
-            publicacion = Curiosity(title=info_publicacion['titulo'], content=info_publicacion['contenido'])
+            #publicacion = Curiosity(title=info_publicacion['titulo'], content=info_publicacion['contenido'])
         
-            publicacion.save()
+            #publicacion.save()
         
             return redirect("curiosidades")
         else:

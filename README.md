@@ -7,12 +7,19 @@ Andres
 4. Creacion HTML Template.
 5. Configuración de Admin, setting, urls.
 
+Pendientes:
+Model de Avatar
+App Perfil
+
 Botti
 1. Clonacion de repositorio.
 2. Instalacion de entorno virtual.
 3. Creacion de App Blog.
 4. Creacion modelo TimestampedModel y Category.
 
+Pendientes:
+Model user +
+App login
 
 Perez:
 1. Instalacion de entorno virtual.
@@ -20,3 +27,7 @@ Perez:
 3. Creacion del proyecto + repositorio Github.
 4. Creacion de vistas y url.
 5. Creacion Form Insert "Curiosidades"
+
+Pendientes:
+Model Image
+App Registro
