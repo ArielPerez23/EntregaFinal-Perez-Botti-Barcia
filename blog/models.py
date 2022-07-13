@@ -43,7 +43,6 @@ class Article(TimestampedModel, models.Model):
     category = models.CharField(max_length=30, choices=CATEGORY)
 
 
-
 ### Dejar al final del codigo ###
 @receiver(pre_save, sender=Article)
 def set_author(sender, instance, *args, **kwargs):
