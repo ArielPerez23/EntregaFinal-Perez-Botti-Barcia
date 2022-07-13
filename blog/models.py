@@ -1,7 +1,8 @@
-from tabnanny import verbose
 from django.db import models
-from django.forms import model_to_dict
 from django.utils.translation import gettext as _
+
+from authorization.models import User
+
 from blog.constants import CATEGORY
 
 class TimestampedModel(models.Model):
@@ -20,9 +21,6 @@ class Avatar(TimestampedModel, models.Model):
 class Image(TimestampedModel, models.Model):
     pass
 
-class User(TimestampedModel, models.Model):
-    pass
-
 class Article(TimestampedModel, models.Model):
     title = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=200,
@@ -32,5 +30,6 @@ class Article(TimestampedModel, models.Model):
                                     null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True) #Blank y null estan puestos aca porque me tiraba error en el form
     category = models.CharField(max_length=30, choices=CATEGORY)
+    
 
 
