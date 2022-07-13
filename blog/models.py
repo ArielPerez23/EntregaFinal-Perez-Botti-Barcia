@@ -34,19 +34,11 @@ class UserProfile(models.Model):
 
     pass
 
-class Image(TimestampedModel, models.Model):
-    '''
-    Model para carga de imagenes de posts
-    '''
-    pass
-
 class Article(TimestampedModel, models.Model):
     title = models.CharField(max_length=150)
-    subtitle = models.CharField(max_length=200,
-                                    null=True, blank=True)
+    subtitle = models.CharField(max_length=200, null=True, blank=True)
     body = models.TextField()
-    image = models.ForeignKey(Image, on_delete=models.CASCADE,
-                                    null=True, blank=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True,)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True, editable=False) #Blank y null estan puestos aca porque me tiraba error en el form
     category = models.CharField(max_length=30, choices=CATEGORY)
 

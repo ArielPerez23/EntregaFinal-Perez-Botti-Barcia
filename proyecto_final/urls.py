@@ -15,6 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+#Para imagenes
+from django.conf import settings
+from django.conf.urls.static import static
+
 from blog.views import *
 
 urlpatterns = [
@@ -24,3 +29,6 @@ urlpatterns = [
     #URLS BLOG
     path('blog/', include('blog.urls')),
 ]
+
+#Imagenes
+urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
