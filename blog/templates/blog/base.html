@@ -25,6 +25,7 @@
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'curiosidades' %}">Curiosidades</a></li>
                         
                             {% if user.is_authenticated %}
+                                <li class="nav-item"><p class="text-light my-2"> Hola, <b>{{user.username}}</b>!</p></li>
                                 <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'logout' %}">Cerrar Sesión</a></li>
                             {% else %}
                                 <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'login' %}">Iniciar Sesión</a></li>
