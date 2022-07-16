@@ -1,3 +1,4 @@
+import email
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
@@ -11,6 +12,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+
+def home(request):
+    return render(request,"blog/index.html" )
 
 def login_request(request):
 
@@ -36,7 +40,6 @@ def login_request(request):
 
     return render(request, "blog/login.html",{"form":form})
 
-
 def register_request(request):
 
     if request.method == "POST":
@@ -47,6 +50,7 @@ def register_request(request):
 
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1') # primer contraseña, no la confirmacion
+            
 
             form.save() # registramos el usuario
             user = authenticate(username=username, password=password)# iniciamos la sesion
@@ -62,3 +66,7 @@ def register_request(request):
     form = UserRegisterForm()
 
     return render(request,"blog/register.html",{"form":form})
+
+def logout_request(request):
+    logout(request)
+    return redirect('inicio')    

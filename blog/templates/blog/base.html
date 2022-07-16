@@ -23,8 +23,13 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'hardware' %}">Hardware</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'software' %}">Software</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'curiosidades' %}">Curiosidades</a></li>
-                        <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'login' %}">Iniciar Sesión</a></li>
-                        <li class="nav-item"><a class="btn btn-outline-primary" href="{% url 'register' %}">Registrarse</a></li>
+                        
+                            {% if user.is_authenticated %}
+                                <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                            {% else %}
+                                <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'login' %}">Iniciar Sesión</a></li>
+                                <li class="nav-item"><a class="btn btn-outline-primary" href="{% url 'register' %}">Registrarse</a></li>
+                            {% endif %}
                     </ul>
                 </div>
             </div>
