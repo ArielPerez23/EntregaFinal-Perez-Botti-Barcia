@@ -29,5 +29,4 @@ Perez:
 5. Creacion Form Insert "Curiosidades"
 
 Pendientes:
-Model Image
 App Registro

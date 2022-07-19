@@ -27,23 +27,23 @@ def nuevo_articulo(request):
     #post
     if request.method == 'POST':
 
-        formulario = NewArticle(request.POST)
+        form = NewArticle(request.POST, request.FILES)
         
-        if formulario.is_valid():
+        if form.is_valid():
             
-            info_articulo = formulario.cleaned_data
+            info = form.cleaned_data
+            
+            article = Article(title=info['title'], subtitle=info['subtitle'], body=info['body'], image=info['image'], category=info['category'])
         
-            articulo = Article(title=info_articulo["title"],subtitle=info_articulo["subtitle"],body=info_articulo["body"])
-        
-            articulo.save()
+            article.save()
         
             return redirect("curiosidades")
         
         return redirect("nuevo_articulo")
 
     #get
-    formularioVacio = NewArticle()
-    return render(request, "blog/nuevo_articulo.html",{"form":formularioVacio})
+    emptyForm = NewArticle()
+    return render(request, "blog/nuevo_articulo.html",{"form":emptyForm})
 
 def buscar_articulo(request):
     pass

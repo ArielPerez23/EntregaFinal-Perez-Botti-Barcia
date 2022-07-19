@@ -40,7 +40,8 @@ class Article(TimestampedModel, models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images', null=True, blank=True,)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True, editable=False) #Blank y null estan puestos aca porque me tiraba error en el form
-    category = models.CharField(max_length=30, choices=CATEGORY)
+    category = models.IntegerField(choices=CATEGORY)
+
 
 
 ### Dejar al final del codigo ###
@@ -59,5 +60,3 @@ def set_author(sender, instance, *args, **kwargs):
     
     if request:
         instance.author = request.user
-
-    
