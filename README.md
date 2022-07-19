@@ -17,9 +17,9 @@ Botti
 3. Creacion de App Blog.
 4. Creacion modelo TimestampedModel y Category.
 5. Model Custom User
+6. Logout + Icon
 
 Pendientes:
-App login
 
 Perez:
 1. Instalacion de entorno virtual.
