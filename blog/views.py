@@ -47,3 +47,6 @@ def nuevo_articulo(request):
 
 def buscar_articulo(request):
     pass
+
+def about(request):
+    return render(request, "blog/about.html")

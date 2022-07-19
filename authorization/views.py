@@ -13,8 +13,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
-def home(request):
-    return render(request,"blog/index.html" )
 
 def login_request(request):
 

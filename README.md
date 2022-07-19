@@ -1,6 +1,6 @@
-# Entrega1-Perez-Botti
+# Proyecto final Barcia-Botti-Perez: BLOG - "TecnologiBLOG"
 
-Andres
+Andres Barcia
 1. Clonacion de repositorio.
 2. Instalacion de entorno virtual.
 3. Creacion static folder.
@@ -11,7 +11,8 @@ Pendientes:
 Model de Avatar
 App Perfil
 
-Botti
+---
+Ariel Botti
 1. Clonacion de repositorio.
 2. Instalacion de entorno virtual.
 3. Creacion de App Blog.
@@ -21,12 +22,15 @@ Botti
 
 Pendientes:
 
-Perez:
+---
+Ariel Perez Albarracin:
 1. Instalacion de entorno virtual.
 2. Instalacion de paquetes y librerias.
 3. Creacion del proyecto + repositorio Github.
 4. Creacion de vistas y url.
-5. Creacion Form Insert "Curiosidades"
+5. Creacion Form Insert "Curiosidades" con su view y template
+6. Creacion form insert "Registro" con su view y template
 
-Pendientes:
-App Registro
+
+
+Pendientes: Crear formulario busqueda, opciones de editar-eliminar.
