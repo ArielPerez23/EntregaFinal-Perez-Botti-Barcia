@@ -6,10 +6,12 @@ Andres Barcia
 3. Creacion static folder.
 4. Creacion HTML Template.
 5. Configuración de Admin, setting, urls.
+6. Model de Avatar
+7. Creacion de form de Edicion de perfiles
+8. Creacion de form de Avatar
+9. Agregar urls para edicion de perfil y avatar
 
 Pendientes:
-Model de Avatar
-App Perfil
 
 ---
 Ariel Botti
