@@ -17,23 +17,6 @@ class TimestampedModel(models.Model):
 
     class Meta:
         abstract = True
-
-class Avatar(TimestampedModel, models.Model):
-    '''
-    Model para imagenes de Avatares de usuarios
-    '''
-    pass
-
-class UserProfile(models.Model):
-    '''
-    Model para el perfil de cada usuario.
-    '''
-    # 
-    # bio =
-    # 
-
-    pass
-
 class Article(TimestampedModel, models.Model):
     title = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=200, null=True, blank=True)

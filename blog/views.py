@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .models import Article
-from .forms import NewArticle
 
+from blog.models import Article
+from blog.forms import NewArticle
 
 def inicio(request):
     

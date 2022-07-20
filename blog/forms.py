@@ -1,6 +1,4 @@
-from email.mime import image
 from django import forms
-
 class NewArticle(forms.Form):
     
     title = forms.CharField(label='Titulo', max_length=150)

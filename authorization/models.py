@@ -25,3 +25,19 @@ def random_username(sender, instance, **kwargs):
 
 # Signals
 models.signals.pre_save.connect(random_username, sender=User)
+
+class UserProfile(models.Model):
+    '''
+    Model para el perfil de cada usuario.
+    '''
+    first_name = models.CharField(max_length=30) # Texto
+    last_name = models.CharField(max_length=30) # Texto
+    email = models.EmailField(blank=True, null=True)
+    biography = models.CharField(max_length=400)
+class Avatar(models.Model):
+    '''
+    Model para imagenes de Avatares de usuarios
+    '''
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    imagen = models.ImageField(upload_to='avatar/', blank=True, null=True)
