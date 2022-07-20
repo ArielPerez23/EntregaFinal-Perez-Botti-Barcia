@@ -34,6 +34,7 @@ class UserProfile(models.Model):
     last_name = models.CharField(max_length=30) # Texto
     email = models.EmailField(blank=True, null=True)
     biography = models.CharField(max_length=400)
+
 class Avatar(models.Model):
     '''
     Model para imagenes de Avatares de usuarios

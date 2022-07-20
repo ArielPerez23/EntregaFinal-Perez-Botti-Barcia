@@ -27,7 +27,12 @@
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'curiosidades' %}">Curiosidades</a></li>
                         
                             {% if user.is_authenticated %}
-                                <li class="nav-item"><p class="text-light my-2"> <i class="bi bi-person-bounding-box"></i> Hola, <b>{{user.first_name}}</b>!</p></li>
+                                {% if user.avatar.imagen.url %}
+                                <img class="rounded" src="{{ user.avatar.imagen.url }}" alt="" srcset="" style="height: 40px;">
+                                {% else %}
+                                <i class="bi bi-person-bounding-box"></i>
+                                {% endif %}
+                                <li class="nav-item"><p class="text-light my-2">  Hola, <b>{{user.first_name}}</b>!</p></li>
                                 <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'logout' %}">Cerrar Sesión</a></li>
                             {% else %}
                                 <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'login' %}">Iniciar Sesión</a></li>

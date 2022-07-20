@@ -9,6 +9,16 @@ Curiosidades - Blog
 <title>Curiosidades</title>
 
 <!-- Page Content-->
+<form class="input-group w-50 " action="" method="post">{% csrf_token %}
+    <input type="search" name="search" class="form-control" placeholder="Buscar por titulo o contenido" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Buscar</button>
+    <a class="btn btn-outline-info" href="{% url 'nuevo_articulo' %}">Nuevo articulo</a>
+</form>
+<h4>
+    {% if search %}
+        Resultados de "{{busqueda}}":
+    {% endif %}
+</h4>
 {% for curiosidad in curiosidades %}
 <div class="card mb-3 w-50">
     <div class="row g-0">
@@ -27,6 +37,4 @@ Curiosidades - Blog
     </div>
 </div>
 {% endfor %}
-<a href="../nuevo_articulo" class="btn btn-outline-primary">Nuevo articulo</a>
-
 {% endblock %}
