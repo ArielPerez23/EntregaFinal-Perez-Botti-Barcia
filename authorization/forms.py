@@ -1,11 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-#from django.contrib.auth.models import User
 from .models import User, UserProfile, Avatar
-from blog.models import *
+
+
 class UserRegisterForm(UserCreationForm):
     
-    #email = forms.EmailField(label="Email")
+    email = forms.EmailField(label="Email")
     password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput) # la contraseña no se vea
     password2 = forms.CharField(label="Confirmar contraseña", widget=forms.PasswordInput)
 
