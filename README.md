@@ -36,3 +36,4 @@ Ariel Perez Albarracin:
 
 
 Pendientes: Crear formulario busqueda, opciones de editar-eliminar.
+Borrar de gitignore la carpeta media

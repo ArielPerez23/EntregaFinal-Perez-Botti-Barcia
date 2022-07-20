@@ -6,8 +6,6 @@ from django.dispatch import receiver
 
 from authorization.models import User
 
-from blog.constants import CATEGORY
-
 class TimestampedModel(models.Model):
     '''
     Modelo de auditoria y control de cambios
@@ -17,13 +15,23 @@ class TimestampedModel(models.Model):
 
     class Meta:
         abstract = True
+
+class Category(models.Model):
+    name = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = "Categories"
+
 class Article(TimestampedModel, models.Model):
     title = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=200, null=True, blank=True)
     body = models.TextField()
     image = models.ImageField(upload_to='images', null=True, blank=True,)
-    author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True, editable=False) #Blank y null estan puestos aca porque me tiraba error en el form
-    category = models.IntegerField(choices=CATEGORY)
+    author = models.ForeignKey(User, on_delete=models.DO_NOTHING, editable=False) 
+    category = models.CharField(max_length=30)
 
 
 

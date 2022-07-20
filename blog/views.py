@@ -60,8 +60,5 @@ def nuevo_articulo(request):
     emptyForm = NewArticle()
     return render(request, "blog/nuevo_articulo.html",{"form":emptyForm})
 
-def buscar_articulo(request):
-    pass
-
 def about(request):
     return render(request, "blog/about.html")
