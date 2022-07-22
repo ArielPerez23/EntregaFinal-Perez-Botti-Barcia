@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
+from django.views.generic import ListView, DetailView
+
 from blog.models import Article
 from blog.forms import NewArticle
 
@@ -10,9 +12,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
-def inicio(request):
+# def inicio(request):
     
-    return render(request, "blog/index.html")
+#     return render(request, "blog/index.html")
+
+class HomeView(ListView):
+    model = Article
+    template_name = 'blog/index.html'
 
 def software(request):
     
