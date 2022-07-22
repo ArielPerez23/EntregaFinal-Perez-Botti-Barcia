@@ -12,13 +12,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
-# def inicio(request):
-    
-#     return render(request, "blog/index.html")
 
 class HomeView(ListView):
     model = Article
     template_name = 'blog/index.html'
+
+def categoryView(request, articulo):
+    
+    category_post = Article.objects.filter(category = articulo)
+    
+    return render(request, "blog/categories.html", {"articulo":articulo, "category_post":category_post})
 
 def software(request):
     
