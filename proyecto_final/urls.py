@@ -1,5 +1,3 @@
-
-from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path, include
 
@@ -19,7 +17,7 @@ urlpatterns = [
     
     #URLS authorization
     path('authorization/', include('authorization.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 #Imagenes
 if settings.DEBUG:

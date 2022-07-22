@@ -17,34 +17,26 @@ Inicio - Blog
     </div>
 </header>
 
-{% for post in object_list %}
-
-    {{post.image}}<br> 
-    <img src="{% static '{{post.image}}' %}">
-{% endfor %}
-
-
 <div class="container">
     <div class="row">
         <!-- Blog entries-->
         <div class="col-lg-8">
-            
-            <!-- Nested row for non-featured blog posts-->
-            <div class="row">
-                <div class="col-lg-6">
-                    <!-- Blog post-->
-                    {% for post in object_list %}
-                        <div class="card mb-4">
-                            <a href=""><img class="card-img-top" src="" alt="..." /></a>
+            <!-- Blog post-->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for post in object_list %}
+                <div class="col">
+                        <div class="card">
+                            <a href=""><img class="img-fluid img-thumbnail" src="{{post.image.url}}"/></a>
                             <div class="card-body">
                                 <div class="small text-muted">{{post.created_at}}</div>
                                 <h2 class="card-title h4">{{post.title}}</h2>
-                                <p class="card-text">{{post.subtitle}}</p>
+                                <p class="card-text text-truncate">{{post.body}}</p>
                                 <a class="btn btn-primary" href="#!">Read more →</a>
                             </div>
                         </div>
-                    {% endfor %}
-                    
+                </div>
+                {% endfor %}
+            </div>            
             <!-- Pagination-->
             <nav aria-label="Pagination">
                 <hr class="my-0" />
