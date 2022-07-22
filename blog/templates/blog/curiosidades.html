@@ -24,8 +24,11 @@ Curiosidades - Blog
 {% for curiosidad in curiosidades %}
 <div class="card mb-3 w-50">
     <div class="row g-0">
+        
         <div class="col-md-4">
-            <img src="{{ curiosidad.image.url }}" class="img-fluid rounded-start" alt="...">
+            {% if curiosidad.image  %}
+                <img src="{{ curiosidad.image.url }}" class="img-fluid rounded-start" alt="...">
+            {% endif %}
         </div>
         <div class="col-md-8">
             <div class="card-body">

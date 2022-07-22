@@ -26,7 +26,10 @@ Inicio - Blog
                 {% for post in object_list %}
                 <div class="col">
                         <div class="card">
-                            <a href=""><img class="img-fluid img-thumbnail" src="{{post.image.url}}"/></a>
+                            {% if post.image  %}
+                                <a href=""><img class="img-fluid img-thumbnail" src="{{post.image.url}}"/></a>
+                            {% endif %}
+                            
                             <div class="card-body">
                                 <div class="small text-muted">{{post.created_at}}</div>
                                 <h2 class="card-title h4">{{post.title}}</h2>
