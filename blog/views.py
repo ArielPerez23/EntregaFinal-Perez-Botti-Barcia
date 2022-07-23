@@ -27,19 +27,35 @@ class MessageView(ListView):
     #paginate_by = 4    
     template_name = 'blog/mensajes.html'
 
-def categoryView(request, articulo):
-    
-    category_post = Article.objects.filter(category = articulo)
-    
-    return render(request, "blog/categories.html", {"articulo":articulo, "category_post":category_post})
-
 def software(request):
     
-    return render(request, "blog/software.html")
+    if request.method == "POST":
+
+        search = request.POST["search"]
+
+        if search != "":
+            software = Article.objects.filter( Q(title__icontains=search) | Q(body__icontains=search) ).values()
+
+            return render(request,"blog/software.html",{"software":software, "search":True, "busqueda":search})
+
+    software = Article.objects.all()
+
+    return render(request, "blog/software.html",{"software":software})
 
 def hardware(request):
     
-    return render(request, "blog/hardware.html")
+    if request.method == "POST":
+
+        search = request.POST["search"]
+
+        if search != "":
+            hardware = Article.objects.filter( Q(title__icontains=search) | Q(body__icontains=search) ).values()
+
+            return render(request,"blog/hardware.html",{"hardware":hardware, "search":True, "busqueda":search})
+
+    hardware = Article.objects.all()
+
+    return render(request, "blog/hardware.html",{"hardware":hardware})
 
 def curiosidades(request):
     

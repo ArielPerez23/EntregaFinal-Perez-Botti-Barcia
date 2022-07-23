@@ -21,4 +21,32 @@ Hardware - Blog
         Resultados de "{{busqueda}}":
     {% endif %}
 </h4>
+{% if hardware %}
+    {% for post in hardware %}
+    {% if post.category == "H" %}
+    <div class="card mb-3 w-50">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if post.image  %}
+                    <img src="{{ post.image.url }}" class="img-fluid rounded-start" alt="...">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <span class="">{{post.category}}</span>
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <h6 class="card-subtitle ">{{post.subtitle}}</h6>
+                    <p class="card-text text-truncate">{{post.body}}</p>
+                    <p class="card-text"><small class="text-muted"> Creado por {{user.first_name}} {{user.last_name}}</small></p>
+                    <p class="card-text"><small class="text-muted"> {{post.created_at}}</small></p>
+                    <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Ver mas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif%}
+    {% endfor %}
+{% else %}
+<h2>No existen articulos en esta categoria</h2>
+{% endif %}
 {% endblock %}
