@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
+from django.urls import reverse_lazy
 
 from blog.models import Article, Message
 from blog.forms import NewArticle, UserEditForm
@@ -18,9 +19,6 @@ class HomeView(ListView):
     paginate_by = 4    
     template_name = 'blog/index.html'
 
-class ArticleDetailView(DetailView):
-    model = Article
-    template_name = 'blog/detalle_articulo.html'
 
 class MessageView(ListView):
     model = Message
@@ -96,17 +94,31 @@ def nuevo_articulo(request):
             else:
                 return redirect("inicio")
 
-
         return redirect("nuevo_articulo")
 
     #get
     emptyForm = NewArticle()
     return render(request, "blog/nuevo_articulo.html",{"form":emptyForm})
 
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'blog/detalle_articulo.html'
+
+
+def eliminar_articulo(request,articulo_id):
+    
+    articulo = Article.objects.get(id = articulo_id)
+    articulo.delete()
+    
+    return redirect('inicio')
+
+def editar_articulo(request, articulo_id):
+    pass
+
 def about(request):
     return render(request, "blog/about.html")
 
-
+#Esto esta repetido!!!!
 @login_required
 def editar_perfil(request):
 
