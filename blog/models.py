@@ -24,6 +24,7 @@ class Article(TimestampedModel, models.Model):
     image = models.ImageField(upload_to='images', null=True, blank=True,)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, editable=False) 
     category = models.CharField(max_length=30, choices=CATEGORY)
+    likes = models.ManyToManyField(User, related_name='user_likes')
 
     def __str__(self):
         return self.title + '|' + str(self.author)

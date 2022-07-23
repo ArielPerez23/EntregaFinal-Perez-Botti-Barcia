@@ -15,6 +15,8 @@ urlpatterns = [
 
     path('about/', about, name="about"),
     path('editarperfil/', editar_perfil, name="editarperfil"),
+    path('post/<int:pk>', ArticleDetailView.as_view(), name='post_detail'),
     path('mensajes/', MessageView.as_view(), name='messages'),
+    path('like/<int:pk>', LikeView, name='like_post'),
     
 ]
