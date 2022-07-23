@@ -12,9 +12,19 @@ Login - TecnologiBLOG
         <h1>Inicia Sesión</h1>
         <form action="" method="post">
             {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Iniciar Sesión</button>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            
+            <button type="submit">Iniciar Sesión</button><br>
+            <br>
+            No es Usuario?, Registrese <a href="{% url 'register' %}">aqui!</a>
+
         </form>
     </div>
 </section>
 {% endblock %}
+
