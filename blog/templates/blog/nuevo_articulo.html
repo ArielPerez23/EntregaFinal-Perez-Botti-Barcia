@@ -9,14 +9,50 @@ Nuevo Articulo - Blog
 <title>TecnologiBLOG</title>
 <br><br>
 
-<!-- Page Content-->
-<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-2">
+        1 of 3
+        </div> -->
+        <div class="col">
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Titulo</label>
+                <input type="text" class="form-control" name="title">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Subtitulo</label>
+                <input type="text" class="form-control" name="subtitle">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Contenido</label>
+                <textarea class="form-control" rows="4" name="body"></textarea>
+            </div>
+        
+            <label class="input-group-text">Cagoria</label>
+            <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" name="category" required>
+                <option value selected>--------</option>
+                <option value="H">Hardware</option>
+                <option value="S">Software</option>
+                <option value="C">Curiosidades</option>
+              </select>
+        
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                <input type="file" class="form-control" name="image">
+            </div>
+        
+            <input class="btn btn-outline-success" type="submit" value="Crear articulo">
+        
+        </form>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
 
-    {{form.as_p}}
-
-    <input class="btn btn-success" type="submit" value="Crear articulo">
-
-</form>
 
 <br><br>
 {% endblock %}
+
+
