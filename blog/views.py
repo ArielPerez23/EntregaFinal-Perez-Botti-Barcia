@@ -15,6 +15,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 class HomeView(ListView):
     model = Article
+    paginate_by = 4    
     template_name = 'blog/index.html'
 
 class ArticleDetailView(DetailView):

@@ -42,7 +42,24 @@ Inicio - Blog
                 {% endfor %}
             </div>            
             <!-- Pagination-->
-            <nav aria-label="Pagination">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; primero</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                    {% endif %}
+            
+                    <span class="current">
+                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                    </span>
+            
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">ultimo &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+            <!-- <nav aria-label="Pagination">
                 <hr class="my-0" />
                 <ul class="pagination justify-content-center my-4">
                     <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
@@ -53,7 +70,7 @@ Inicio - Blog
                     <li class="page-item"><a class="page-link" href="#!">15</a></li>
                     <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                 </ul>
-            </nav>
+            </nav> -->
         </div>
         <!-- Side widgets-->
         <div class="col-lg-4">
