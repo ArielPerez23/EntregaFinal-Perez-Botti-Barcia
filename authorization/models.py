@@ -14,7 +14,9 @@ class User(AbstractUser):
 
     first_name = models.CharField(max_length=100, blank=True, null=True)
     last_name = models.CharField(max_length=100, blank=True, null=True)
+    
     email = models.EmailField(_('email address'), unique=True)
+       
     objects = UserManager()
 
 
@@ -25,15 +27,6 @@ def random_username(sender, instance, **kwargs):
 
 # Signals
 models.signals.pre_save.connect(random_username, sender=User)
-
-class UserProfile(models.Model):
-    '''
-    Model para el perfil de cada usuario.
-    '''
-    first_name = models.CharField(max_length=30) # Texto
-    last_name = models.CharField(max_length=30) # Texto
-    email = models.EmailField(blank=True, null=True)
-    biography = models.CharField(max_length=400)
 
 class Avatar(models.Model):
     '''
