@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, UserProfile, Avatar
+from .models import User, Avatar
 
 
 class UserRegisterForm(UserCreationForm):
@@ -26,7 +26,7 @@ class UserEditForm(UserCreationForm):
     last_name = forms.CharField(label='Apellido')
     class Meta:
     
-        model = UserProfile
+        model = User
         fields = ('email', 'password1', 'pasword2','first_name', 'last_name')
     
         help_texts = {k:"" for k in fields}

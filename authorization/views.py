@@ -1,11 +1,12 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django import forms
 
-from authorization.models import User, UserProfile
+from authorization.models import User
 from authorization.forms import UserRegisterForm
 
 from .forms import *
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -103,7 +104,7 @@ def agregar_avatar(request):
 
         if form.is_valid():
 
-            user = UserProfile.objects.get(username=request.user.username) # usuario con el que estamos loggueados
+            user = User.objects.get(username=request.user.username) # usuario con el que estamos loggueados
 
             avatar = Avatar(usuario=user, imagen=form.cleaned_data["imagen"])
 
