@@ -17,6 +17,7 @@ class HomeView(ListView):
     model = Article
     paginate_by = 4    
     template_name = 'blog/index.html'
+    ordering = ['-created_at']
 
 class ArticleDetailView(DetailView):
     model = Article
