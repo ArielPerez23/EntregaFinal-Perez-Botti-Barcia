@@ -19,5 +19,9 @@ Detalle de Posteo
         <div class="small text-muted">{{article.created_at}}</div><br>
         
     </div>
+    <form action="{% url 'like_post' article.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{article.id}}" class="btn btn-primary btn-sm">Like</button>
+    </form>
 </div>
 {% endblock %}

@@ -1,5 +1,6 @@
-from django.shortcuts import redirect, render
-from django.http import HttpResponse
+from cgitb import reset
+from django.shortcuts import redirect, render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
 
 from django.views.generic import ListView, DetailView
 
@@ -7,6 +8,7 @@ from blog.models import Article, Message
 from blog.forms import NewArticle, UserEditForm
 
 from django.db.models import Q
+from django.urls import reverse
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -27,6 +29,12 @@ class MessageView(ListView):
     model = Message
     #paginate_by = 4    
     template_name = 'blog/mensajes.html'
+
+def LikeView(request, pk):
+    post = get_object_or_404(Article, id=request.POST.get('post_id'))
+    post.likes.add (request.user)
+    return HttpResponseRedirect(reverse('post_detail',args=[str(pk)]))
+
 
 def software(request):
     
