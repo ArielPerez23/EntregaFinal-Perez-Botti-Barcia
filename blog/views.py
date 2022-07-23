@@ -65,8 +65,16 @@ def nuevo_articulo(request):
         
             article.save()
         
-            return redirect("curiosidades")
-        
+            if article.category == 'C':
+                return redirect("curiosidades")
+            elif article.category == 'H':
+                return redirect("hardware")
+            elif article.category == 'S':
+                return redirect("software")
+            else:
+                return redirect("inicio")
+
+
         return redirect("nuevo_articulo")
 
     #get

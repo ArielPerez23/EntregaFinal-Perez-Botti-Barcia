@@ -89,7 +89,8 @@ def editar_perfil(request):
             user.save()
 
             return redirect("inicio")
-    
+    form = UserEditForm(request.GET)
+
     return render(request, "blog/editarperfil.html",{"form": form})
 
 #Creamos avatar 
