@@ -34,7 +34,8 @@ Inicio - Blog
                                 <div class="small text-muted">{{post.created_at}}</div>
                                 <h2 class="card-title h4">{{post.title}}</h2>
                                 <p class="card-text text-truncate">{{post.body}}</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
+                                <div class="small text-muted">Creado por: {{post.author.first_name}} {{post.author.last_name}}</div><br>
+                                <a class="btn btn-primary" href="{% url 'post_detail' post.pk %}">Leer mas .. →</a>
                             </div>
                         </div>
                 </div>

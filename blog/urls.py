@@ -9,5 +9,6 @@ urlpatterns = [
     path('nuevo_articulo/', nuevo_articulo, name="nuevo_articulo"),
     path('about/', about, name="about"),
     path('category/<str:articulo>/', categoryView, name="category"),
+    path('post/<int:pk>', ArticleDetailView.as_view(), name='post_detail')
     
 ]

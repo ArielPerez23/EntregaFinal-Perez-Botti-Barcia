@@ -17,6 +17,10 @@ class HomeView(ListView):
     model = Article
     template_name = 'blog/index.html'
 
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'blog/detalle_articulo.html'
+
 def categoryView(request, articulo):
     
     category_post = Article.objects.filter(category = articulo)

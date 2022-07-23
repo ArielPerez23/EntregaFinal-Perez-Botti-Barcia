@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block  tituloPagina%}
+Detalle de Posteo
+{% endblock  %}
+
+{% block  contenidoPagina%}
+<div class="card"><br>
+    {% if article.image  %}
+        <a href=""><img class="img-fluid img-thumbnail" src="{{article.image.url}}"/></a>
+    {% endif %}
+    
+    <div class="card-body">
+        
+        <h2 class="card-title h4">{{article.title}}</h2>
+        <p class="card-text text-truncate">{{article.body}}</p>
+        <div class="small text-muted">Creado por: {{article.author.first_name}} {{article.author.last_name}}</div>
+        <div class="small text-muted">{{article.created_at}}</div><br>
+        
+    </div>
+</div>
+{% endblock %}
