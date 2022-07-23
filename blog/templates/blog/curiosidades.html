@@ -21,7 +21,9 @@ Curiosidades - Blog
         Resultados de "{{busqueda}}":
     {% endif %}
 </h4>
+
 {% for curiosidad in curiosidades %}
+{% if curiosidad.category == "C" %}
 <div class="card mb-3 w-50">
     <div class="row g-0">
         
@@ -36,12 +38,13 @@ Curiosidades - Blog
                 <h5 class="card-title">{{curiosidad.title}}</h5>
                 <h6 class="card-subtitle ">{{curiosidad.subtitle}}</h6>
                 <p class="card-text text-truncate">{{curiosidad.body}}</p>
-                <p class="card-text"><small class="text-muted"> Creado por {{author.first_name}}{{author.last_name}}</small></p>
+                <p class="card-text"><small class="text-muted"> Creado por {{curiosidad.first_name}}{{curiosidad.last_name}}</small></p>
                 <p class="card-text"><small class="text-muted"> {{curiosidad.created_at}}</small></p>
-                <a href="#" class="btn btn-primary">Ver mas</a>
+                <a href="{% url 'post_detail' curiosidad.pk %}" class="btn btn-primary">Ver mas</a>
             </div>
         </div>
     </div>
 </div>
+{% endif%}
 {% endfor %}
 {% endblock %}

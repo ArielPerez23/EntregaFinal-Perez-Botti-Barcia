@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
+from blog.constants import *
 
 from authorization.models import User
 
@@ -31,7 +32,7 @@ class Article(TimestampedModel, models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images', null=True, blank=True,)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, editable=False) 
-    category = models.CharField(max_length=30)
+    category = models.CharField(max_length=30, choices=CATEGORY)
 
     def __str__(self):
         return self.title + '|' + str(self.author)

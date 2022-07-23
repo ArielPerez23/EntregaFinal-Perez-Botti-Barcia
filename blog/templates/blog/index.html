@@ -84,10 +84,12 @@ Inicio - Blog
                 </div>
             </div>
             <!-- Side widget-->
+            {% if user.is_authenticated %}
             <div class="card mb-4">
                 <div class="card-header">Nuevo Articulo</div>
                 <div class="card-body"><a href="{% url 'nuevo_articulo' %}">Crear Post.!</a></div> 
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
