@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from django.views.generic import ListView, DetailView
 
-from blog.models import Article
+from blog.models import Article, Message
 from blog.forms import NewArticle
 
 from django.db.models import Q
@@ -21,6 +21,11 @@ class HomeView(ListView):
 class ArticleDetailView(DetailView):
     model = Article
     template_name = 'blog/detalle_articulo.html'
+
+class MessageView(ListView):
+    model = Message
+    #paginate_by = 4    
+    template_name = 'blog/mensajes.html'
 
 def categoryView(request, articulo):
     
