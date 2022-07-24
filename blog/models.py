@@ -26,6 +26,9 @@ class Article(TimestampedModel, models.Model):
     category = models.CharField(max_length=30, choices=CATEGORY)
     likes = models.ManyToManyField(User, related_name='user_likes',blank=True, null=True)
 
+    def total_likes(self):
+        return self.likes.count()
+
     def __str__(self):
         return self.title + '|' + str(self.author)
 

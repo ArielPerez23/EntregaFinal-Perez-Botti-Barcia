@@ -113,6 +113,12 @@ class ArticleDetailView(DetailView):
     model = Article
     template_name = 'blog/detalle_articulo.html'
 
+    def get_context_data(self, *args , **kwargs):
+        context= super(ArticleDetailView, self).get_context_data()
+        stuff= get_object_or_404(Article, id=self.kwargs['pk'])
+        total_likes= stuff.total_likes()
+        context['total_likes']=total_likes
+        return context
 
 def eliminar_articulo(request,articulo_id):
     

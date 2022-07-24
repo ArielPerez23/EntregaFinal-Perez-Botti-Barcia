@@ -21,7 +21,7 @@ Detalle de Posteo
     </div>
     <form action="{% url 'like_post' article.pk %}" method="POST">
         {% csrf_token %}
-        <button type="submit" name="post_id" value="{{article.id}}" class="btn btn-primary btn-sm">Like</button>
+        <button type="submit" name="post_id" value="{{article.id}}" class="btn btn-primary btn-sm">Like</button> - {{total_likes}} Likes!
     </form>
 </div>
 {% endblock %}
