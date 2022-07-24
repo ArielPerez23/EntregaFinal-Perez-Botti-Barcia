@@ -14,8 +14,9 @@ urlpatterns = [
     
     path('nuevo_articulo/', nuevo_articulo, name="nuevo_articulo"),
     path('eliminar_articulo/<articulo_id>', eliminar_articulo, name="eliminar_articulo"),
-    path('editar_articulo/<articulo_id>', editar_articulo, name="editar_articulo"),
+    path('articulo/editar/<pk>', ArticleUpdate.as_view(), name="editar_articulo"),
 
+    
     #path('post/<int:pk>', ArticleDetailView.as_view(), name='post_detail'), 
     path('post/<int:pk>', ArticleDetailView.as_view(), name='post_detail'),
     path('mensajes/', MessageView.as_view(), name='messages'),

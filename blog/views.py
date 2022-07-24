@@ -2,7 +2,7 @@ from cgitb import reset
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
-from django.views.generic import ListView, DetailView, DeleteView, CreateView
+from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
 
 from blog.models import Article, Comment, Message
@@ -127,8 +127,17 @@ def eliminar_articulo(request,articulo_id):
     
     return redirect('inicio')
 
-def editar_articulo(request, articulo_id):
-    pass
+class ArticleDelete(DeleteView):
+    
+    model = Article
+    success_url = reverse_lazy('inicio')
+
+class ArticleUpdate(UpdateView):
+
+    model = Article
+    success_url = reverse_lazy('inicio')
+    fields = ["title", "subtitle", "body"]
+
 
 def about(request):
     return render(request, "blog/about.html")
