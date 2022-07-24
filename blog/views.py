@@ -129,7 +129,7 @@ class ArticleUpdate(UpdateView):
 
     model = Article
     success_url = reverse_lazy('inicio')
-    fields = ["title", "subtitle", "body"]
+    fields = ["title", "subtitle", "body", "image"]
 
 
 def about(request):
