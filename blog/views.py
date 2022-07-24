@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, DeleteView
 from django.urls import reverse_lazy
 
 from blog.models import Article, Message
-from blog.forms import NewArticle, UserEditForm
+from blog.forms import NewArticle
 
 from django.db.models import Q
 from django.urls import reverse
@@ -126,27 +126,3 @@ def editar_articulo(request, articulo_id):
 
 def about(request):
     return render(request, "blog/about.html")
-
-#Esto esta repetido!!!!
-@login_required
-def editar_perfil(request):
-
-    user = request.user 
-
-    if request.method == "POST":
-
-        form = UserEditForm(request.POST)
-
-        if form.is_valid():
-
-            info = form.cleaned_data
-            user.email = info['email']
-            user.password1 = info['password1']
-            user.password2 = info['password2']
-            
-            user.save()
-
-            return redirect("inicio")
-    form = UserEditForm(request.GET)
-
-    return render(request, "blog/editarperfil.html",{"usereditform": form})

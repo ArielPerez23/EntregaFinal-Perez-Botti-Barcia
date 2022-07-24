@@ -82,6 +82,7 @@ def editar_perfil(request):
 
         if form.is_valid():
 
+            user = User.objects.get(username=request.user.username) #Ver si funciona
             info = form.cleaned_data
             user.email = info['email']
             user.password1 = info['password1']
