@@ -37,6 +37,14 @@ class Message(TimestampedModel, models.Model):
     receiver = models.ManyToManyField(User, null=True, blank=True, related_name='receiver_user')
     message = models.TextField(max_length=255, null=True, blank=True)
 
+class Comment(TimestampedModel, models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=255)
+    text = models.TextField()
+
+    def __str__(self):
+        return '%s - %s' % (self.article.title, self.name)
+
 ### Dejar al final del codigo ###
 @receiver(pre_save, sender=Article)
 def set_author(sender, instance, *args, **kwargs):

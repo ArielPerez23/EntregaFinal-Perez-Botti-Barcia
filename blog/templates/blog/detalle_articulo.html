@@ -27,6 +27,21 @@ Detalle de Posteo
                         {% csrf_token %}
                         <button type="submit" name="post_id" value="{{article.id}}" class="btn btn-primary btn-sm">Like</button> - {{total_likes}} Likes!
                     </form>
+                    <br><hr>
+                    <h3>Comentarios</h3><br>
+
+                    {% if not article.comments.all %}
+                        Sin comentarios aun ..  <a href="#">Agregar</a>
+                    {% else %}
+                        {% for comment in article.comments.all %}
+                            <strong>{{ comment.name }} - {{ comment.created_at }}</strong><br>
+                            {{ comment.text }} <br><br>
+                
+                        {% endfor %}
+                        <hr>
+                    {% endif %}
+
+
                 </div>
                 
             </div>
