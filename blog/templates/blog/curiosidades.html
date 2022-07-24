@@ -22,7 +22,7 @@
     {% endif %}
 </h4>
 {% for post in curiosidades %}
-{% if post.category == "C" %}
+{% if post.category == "Curiosidades" %}
 <div class="card mb-3 w-50">
     <div class="row g-0">
         <div class="col-md-4">
@@ -44,8 +44,6 @@
         </div>
     </div>
 </div>
-{% else %}
-<h2>No existen articulos en esta categoria</h2>
 {% endif%}
 {% endfor %}
 

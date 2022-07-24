@@ -94,11 +94,11 @@ def nuevo_articulo(request):
         
             article.save()
         
-            if article.category == 'C':
+            if article.category == 'Curiosidades':
                 return redirect("curiosidades")
-            elif article.category == 'H':
+            elif article.category == 'Hardware':
                 return redirect("hardware")
-            elif article.category == 'S':
+            elif article.category == 'Software':
                 return redirect("software")
             else:
                 return redirect("inicio")

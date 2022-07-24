@@ -23,7 +23,7 @@ Software - Blog
 </h4>
 
 {% for post in software %}
-{% if post.category == "S" %}
+{% if post.category == "Software" %}
 <div class="card mb-3 w-50">
     <div class="row g-0">
         <div class="col-md-4">
@@ -44,8 +44,6 @@ Software - Blog
         </div>
     </div>
 </div>
-{% else %}
-<h2>No existen articulos en esta categoria</h2>
 {% endif%}
 {% endfor %}
 

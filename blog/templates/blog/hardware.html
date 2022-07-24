@@ -22,7 +22,7 @@ Hardware - Blog
     {% endif %}
 </h4>
 {% for post in hardware %}
-{% if post.category == "H" %}
+{% if post.category == "Hardware" %}
 <div class="card mb-3 w-50">
     <div class="row g-0">
         <div class="col-md-4">
@@ -43,8 +43,6 @@ Hardware - Blog
         </div>
     </div>
 </div>
-{% else %}
-<h2>No existen articulos en esta categoria</h2>
 {% endif%}
 {% endfor %}
 
