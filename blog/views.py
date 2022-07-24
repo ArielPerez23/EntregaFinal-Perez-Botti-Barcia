@@ -120,13 +120,6 @@ class ArticleDetailView(DetailView):
         context['total_likes']=total_likes
         return context
 
-def eliminar_articulo(request,articulo_id):
-    
-    articulo = Article.objects.get(id = articulo_id)
-    articulo.delete()
-    
-    return redirect('inicio')
-
 class ArticleDelete(DeleteView):
     
     model = Article

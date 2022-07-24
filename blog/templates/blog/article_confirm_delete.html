@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block  title%}
+Eliminar post
+{% endblock  %}
+
+{% block  contenidoPagina%}
+<form action="" method="post">
+    {% csrf_token %}
+    ¿Está seguro que quiere eliminar este articulo: {{ object.title }}?
+    <input type="submit" value="Sí, eliminar">
+</form>
+{% endblock %}
