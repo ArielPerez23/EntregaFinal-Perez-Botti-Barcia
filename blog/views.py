@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, DeleteView, CreateView
 from django.urls import reverse_lazy
 
 from blog.models import Article, Comment, Message
-from blog.forms import NewArticle
+from blog.forms import NewArticle, CommentForm
 
 from django.db.models import Q
 from django.urls import reverse
@@ -136,4 +136,9 @@ def about(request):
 class AddCommentView(CreateView):
     model=Comment
     template_name= 'blog/agregar_comentario.html'
-    fields = "__all__"
+    form_class = CommentForm
+    success_url = reverse_lazy('inicio')
+
+    def form_valid(self,form):
+        form.instance.article_id = self.kwargs['pk']
+        return super().form_valid(form)

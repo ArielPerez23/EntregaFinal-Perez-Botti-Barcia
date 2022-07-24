@@ -1,9 +1,10 @@
 from django import forms
 from django.forms import ModelForm
 
+
 from authorization.forms import *
 
-from .models import Article
+from .models import Article, Comment
 
 # choices = [('Curiosidades','Curiosity'),('Software','Software'),('Hardware','Hardware')]
 
@@ -34,3 +35,13 @@ class UserEditForm(UserCreationForm):
         fields = ('__all__')
     
         help_texts = {k:"" for k in fields}
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields  = ('name', 'text')
+
+        widgets = {
+            'Name':forms.TextInput(attrs={'class':'form-control'}),
+            'Text':forms.Textarea(attrs={'class':'form-control'}),
+        }
