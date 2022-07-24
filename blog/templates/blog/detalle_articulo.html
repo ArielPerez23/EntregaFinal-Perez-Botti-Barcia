@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block  tituloPagina%}
+{% block  title%}
 Detalle de Posteo
 {% endblock  %}
 
@@ -31,8 +31,9 @@ Detalle de Posteo
                     <h3>Comentarios</h3><br>
 
                     {% if not article.comments.all %}
-                        Sin comentarios aun ..  <a href="#">Agregar</a>
+                        Sin comentarios aun ..  <a href="{% url 'agregar_comentario' article.pk %}">Agregar</a>
                     {% else %}
+                        <a href="{% url 'agregar_comentario' article.pk %}">Agregar Comentario</a><br><br>
                         {% for comment in article.comments.all %}
                             <strong>{{ comment.name }} - {{ comment.created_at }}</strong><br>
                             {{ comment.text }} <br><br>
@@ -40,6 +41,7 @@ Detalle de Posteo
                         {% endfor %}
                         <hr>
                     {% endif %}
+                    
 
 
                 </div>

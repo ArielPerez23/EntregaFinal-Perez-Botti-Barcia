@@ -2,10 +2,10 @@ from cgitb import reset
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
-from django.views.generic import ListView, DetailView, DeleteView
+from django.views.generic import ListView, DetailView, DeleteView, CreateView
 from django.urls import reverse_lazy
 
-from blog.models import Article, Message
+from blog.models import Article, Comment, Message
 from blog.forms import NewArticle
 
 from django.db.models import Q
@@ -132,3 +132,8 @@ def editar_articulo(request, articulo_id):
 
 def about(request):
     return render(request, "blog/about.html")
+
+class AddCommentView(CreateView):
+    model=Comment
+    template_name= 'blog/agregar_comentario.html'
+    fields = "__all__"
