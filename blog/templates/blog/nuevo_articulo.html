@@ -32,9 +32,9 @@ Nuevo Articulo - Blog
             <label class="input-group-text">Cagoria</label>
             <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" name="category" required>
                 <option value selected>--------</option>
-                <option value="H">Hardware</option>
-                <option value="S">Software</option>
-                <option value="C">Curiosidades</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Software">Software</option>
+                <option value="Curiosidades">Curiosidades</option>
             </select>
         
             <div class="input-group mb-3">
@@ -51,6 +51,7 @@ Nuevo Articulo - Blog
     </div>
 </div>
 
+{{form.as_p}}
 
 <br><br>
 {% endblock %}
