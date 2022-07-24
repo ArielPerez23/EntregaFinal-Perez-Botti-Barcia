@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block  tituloPagina%}
+{% block  title%}
 Detalle de Posteo
 {% endblock  %}
 
@@ -27,6 +27,23 @@ Detalle de Posteo
                         {% csrf_token %}
                         <button type="submit" name="post_id" value="{{article.id}}" class="btn btn-primary btn-sm">Like</button> - {{total_likes}} Likes!
                     </form>
+                    <br><hr>
+                    <h3>Comentarios</h3><br>
+
+                    {% if not article.comments.all %}
+                        Sin comentarios aun ..  <a href="{% url 'agregar_comentario' article.pk %}">Agregar</a>
+                    {% else %}
+                        <a href="{% url 'agregar_comentario' article.pk %}">Agregar Comentario</a><br><br>
+                        {% for comment in article.comments.all %}
+                            <strong>{{ comment.name }} - {{ comment.created_at }}</strong><br>
+                            {{ comment.text }} <br><br>
+                
+                        {% endfor %}
+                        <hr>
+                    {% endif %}
+                    
+
+
                 </div>
                 
             </div>

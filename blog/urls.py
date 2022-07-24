@@ -21,4 +21,5 @@ urlpatterns = [
     path('post/<int:pk>', ArticleDetailView.as_view(), name='post_detail'),
     path('mensajes/', MessageView.as_view(), name='messages'),
     path('like/<int:pk>', LikeView, name='like_post'),  
+    path('post/<int:pk>/comment/', AddCommentView.as_view(), name='agregar_comentario')
 ]

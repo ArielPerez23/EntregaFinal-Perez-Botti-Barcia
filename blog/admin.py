@@ -13,4 +13,4 @@ class MessageAdmin(admin.ModelAdmin):
 
 admin.site.register(Article,ArticleAdmin)
 admin.site.register(Message, MessageAdmin)
-
+admin.site.register(Comment)

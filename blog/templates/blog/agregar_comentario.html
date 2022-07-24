@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block  title%}
+Agregar Comentarios - Blog
+{% endblock  %}
+
+{% block  contenidoPagina%}
+
+<h1>Agregar Comentario...</h1>
+
+<div class="form-group">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Agregar Comentario</button>
+    </form>
+
+</div>
+
+
+{% endblock %}
