@@ -5,13 +5,12 @@ from authorization.models import User
 from authorization.forms import UserRegisterForm
 
 from .forms import *
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.views import PasswordChangeView
 from django.views import generic
 
 from django.contrib.auth.decorators import login_required
-from django.contrib.admin.views.decorators import staff_member_required
 
 
 def login_request(request):

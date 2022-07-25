@@ -1,5 +1,33 @@
-# Proyecto final Barcia-Botti-Perez: BLOG - "TecnologiBLOG"
+# BLOG - "TecnologiBLOG"
+## Proyecto final Python 31080 
+### Andres Barcia - Ariel Botti - Ariel Perez Albarracin
 
+Instalar django
+
+```shell
+python -m pip install django
+```
+
+En carpeta del proyecto: Aplicar cambios en base de datos
+
+```shell
+python manage.py makemigrations
+python manage.py migrate
+```
+
+
+Crear usuario administrador
+
+```shell
+python manage.py createsuperuser
+```
+Iniciar servidor
+
+```shell
+python manage.py runserver
+```
+
+---
 Andres Barcia
 1. Clonacion de repositorio.
 2. Instalacion de entorno virtual.
@@ -7,11 +35,9 @@ Andres Barcia
 4. Creacion HTML Template.
 5. Configuración de Admin, setting, urls.
 6. Model de Avatar
-7. Creacion de form de Edicion de perfiles
-8. Creacion de form de Avatar
-9. Agregar urls para edicion de perfil y avatar
+7. Creacion de form de Edicion de perfiles con su view, url y template
+8. Creacion de form de Avatar con su view y template
 
-Pendientes:
 
 ---
 Ariel Botti
@@ -22,7 +48,6 @@ Ariel Botti
 5. Model Custom User
 6. Logout + Icon
 
-Pendientes:
 
 ---
 Ariel Perez Albarracin:
@@ -30,10 +55,7 @@ Ariel Perez Albarracin:
 2. Instalacion de paquetes y librerias.
 3. Creacion del proyecto + repositorio Github.
 4. Creacion de vistas y url.
-5. Creacion Form Insert "Curiosidades" con su view y template
-6. Creacion form insert "Registro" con su view y template
-
-
-
-Pendientes: Crear formulario busqueda, opciones de editar-eliminar.
-Borrar de gitignore la carpeta media
+5. Creacion Form Insert "NewArticle" con su view y template
+6. Creacion Form insert "Registro" con su view y template
+7. Barra de busquedas en cada categoria
+8. Boton de editar y eliminar post

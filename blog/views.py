@@ -1,6 +1,5 @@
-from cgitb import reset
 from django.shortcuts import redirect, render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
@@ -11,9 +10,7 @@ from blog.forms import NewArticle, CommentForm
 from django.db.models import Q
 from django.urls import reverse
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from django.contrib.admin.views.decorators import staff_member_required
 
 
 class HomeView(ListView):
@@ -75,6 +72,7 @@ def curiosidades(request):
 
     return render(request, "blog/curiosidades.html",{"curiosidades":curiosidades})
 
+@login_required
 def nuevo_articulo(request):
 
     #post

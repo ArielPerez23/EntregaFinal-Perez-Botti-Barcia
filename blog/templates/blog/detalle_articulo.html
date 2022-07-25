@@ -20,7 +20,10 @@ Detalle de Posteo
                 
                 <div class="card-body">
                     
-                    <h2 class="card-title h4">{{article.title}}</h2>
+                    <h2 class="card-title">{{article.title}}</h2>
+                    {% if article.subtitle %}
+                    <h4 class="card-subtitle">{{article.subtitle}}</h4>
+                    {% endif %}
                     <p class="card-text">{{article.body}}</p>
                     <div class="small text-muted">Creado por: {{article.author.first_name}} {{article.author.last_name}}</div>
                     <div class="small text-muted">{{article.created_at}}</div><br>
