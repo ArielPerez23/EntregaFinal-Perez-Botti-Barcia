@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
 
-from blog.models import Article, Comment, Message
+from blog.models import Article, Comment
 from blog.forms import NewArticle, CommentForm
 
 from django.db.models import Q
@@ -23,10 +23,6 @@ class HomeView(ListView):
     ordering = ['-created_at']
 
 
-class MessageView(ListView):
-    model = Message
-    #paginate_by = 4    
-    template_name = 'blog/mensajes.html'
 
 def LikeView(request, pk):
     post = get_object_or_404(Article, id=request.POST.get('post_id'))

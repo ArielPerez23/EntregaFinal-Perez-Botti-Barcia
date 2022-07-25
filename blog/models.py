@@ -32,10 +32,6 @@ class Article(TimestampedModel, models.Model):
     def __str__(self):
         return self.title + '|' + str(self.author)
 
-class Message(TimestampedModel, models.Model):
-    sender = models.ManyToManyField(User, null=True, blank=True, related_name='sender_user')
-    receiver = models.ManyToManyField(User, null=True, blank=True, related_name='receiver_user')
-    message = models.TextField(max_length=255, null=True, blank=True)
 
 class Comment(TimestampedModel, models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comments')

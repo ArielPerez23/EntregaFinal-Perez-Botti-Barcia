@@ -31,7 +31,6 @@
                         
                         {% if user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'nuevo_articulo' %}">Crear Post</a></li>
-                            <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'messages' %}">Mensajes</a></li
                             <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'editar_perfil' %}">Editar Perfil</a></li>
                         {% endif %}
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'about' %}">Acerca de</a></li>

@@ -6,11 +6,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display=('id','title', 'subtitle', 'author', 'category', 'created_at')
     search_fields=('id','title', 'subtitle', 'author', 'category', 'created_at')
 
-class MessageAdmin(admin.ModelAdmin):
-    list_display=('id', 'message', 'created_at')
-    search_fields=('id', 'message', 'created_at')
 
 
 admin.site.register(Article,ArticleAdmin)
-admin.site.register(Message, MessageAdmin)
 admin.site.register(Comment)
