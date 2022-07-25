@@ -9,14 +9,26 @@ Agregar Comentarios
 
 <h1>Agregar Comentario...</h1>
 
-<div class="form-group">
-    <form action="" method="POST">
+<div class="container px-5" >
+    <div class="row">
+    <form action="" method="POST" class="row g-3">
         {% csrf_token %}
-        {{ form.as_p }}
+        
+        <div class="col-md-12">
+            <input type="text" class="form-control" name="name" placeholder="Nombre">
+        </div>
+        <div class="col-md-12">
+            <textarea name="text" id="" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <div>
         <button class="btn btn-primary">Agregar Comentario</button>
-    </form>
+        </div>
+    </form><br>
+    </div>
 
 </div>
 
 
 {% endblock %}
+
+{{ form.as_p }}
