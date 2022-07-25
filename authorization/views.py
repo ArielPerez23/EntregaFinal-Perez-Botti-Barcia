@@ -5,8 +5,9 @@ from authorization.models import User
 from authorization.forms import UserRegisterForm
 
 from .forms import *
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.views import PasswordChangeView
 from django.views import generic
 
 from django.contrib.auth.decorators import login_required
@@ -103,6 +104,7 @@ class EditarPerfil(generic.UpdateView):
     def get_object(self):
         return self.request.user
 
+
 #Creamos avatar 
 @login_required
 def editar_avatar(request):
@@ -125,3 +127,9 @@ def editar_avatar(request):
         form = AvatarForm()
     
     return render(request,"blog/editar_avatar.html",{"form":form})
+
+class PasswordsChangeView(PasswordChangeView):
+    form_class= PasswordChangingForm
+    success_url = reverse_lazy('editar_perfil')
+
+
