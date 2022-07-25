@@ -16,7 +16,7 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=100, blank=True, null=True)
     
     email = models.EmailField(_('email address'), unique=True)
-       
+    
     objects = UserManager()
 
 

@@ -1,17 +1,14 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block  title%}
-Editar Perfil - TecnologiBLOG
-{% endblock %}
+{% block  title%}Editar Perfil{% endblock %}
 
 {% block contenidoPagina %}
-
 <section class="bg-light py-5">
     <div class="container px-5">
         <h1>Editar Perfil</h1>
         <br>
-        <h5>Estas editanto al usuario "{{user.first_name}} {{user.last_name}}:"</h5>
+        <h5>Estas editando al usuario "{{user.first_name}} {{user.last_name}}:"</h5>
         <br>
         <form action="" method="post">
             {% csrf_token %}

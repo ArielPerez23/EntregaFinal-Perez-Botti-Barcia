@@ -1,15 +1,14 @@
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
-from django import forms
+from django.urls import reverse_lazy
 
 from authorization.models import User
 from authorization.forms import UserRegisterForm
 
 from .forms import *
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
 from django.contrib.auth import login, logout, authenticate
+from django.views import generic
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
@@ -71,33 +70,42 @@ def logout_request(request):
 
 #Vista para editar perfiles
 
-@login_required
-def editar_perfil(request):
+# @login_required
+# def editar_perfil(request):
 
-    user = request.user 
+#     user = request.user 
 
-    if request.method == "POST":
+#     if request.method == "POST":
 
-        form = UserEditForm(request.POST)
+#         form = UserEditForm(request.POST)
 
-        if form.is_valid():
+#         if form.is_valid():
 
-            user = User.objects.get(username=request.user.username) #Ver si funciona
-            info = form.cleaned_data
-            user.email = info['email']
-            user.password1 = info['password1']
-            user.password2 = info['password2']
+#             user = User.objects.get(username=request.user.username)
+#             info = form.cleaned_data
+#             user.email = info['email']
+#             user.password1 = info['password1']
+#             user.password2 = info['password2']
             
-            user.save()
+#             user.save()
 
-            return redirect("inicio")
-    form = UserEditForm(request.GET)
+#             return redirect("inicio")
+    
+#     form = UserEditForm(request.GET)
 
-    return render(request, "blog/editarperfil.html",{"form": form})
+#     return render(request, "blog/editar_perfil.html",{"form": form})
+
+class EditarPerfil(generic.UpdateView):
+    form_class = UserEditForm
+    template_name = 'blog/editar_perfil.html'
+    success_url = reverse_lazy('inicio')
+    
+    def get_object(self):
+        return self.request.user
 
 #Creamos avatar 
 @login_required
-def agregar_avatar(request):
+def editar_avatar(request):
     
     if request.method == "POST":
             
@@ -116,4 +124,4 @@ def agregar_avatar(request):
     else:
         form = AvatarForm()
     
-    return render(request,"blog/agregar_avatar.html",{"form":form})
+    return render(request,"blog/editar_avatar.html",{"form":form})

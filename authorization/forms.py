@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import User, Avatar
 
 
@@ -16,7 +16,7 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2', 'first_name', 'last_name']
 
-class UserEditForm(UserCreationForm):
+class UserEditForm(UserChangeForm):
 
     email = forms.EmailField(label='Email')
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
