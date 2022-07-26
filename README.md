@@ -3,6 +3,13 @@
 ### Andres Barcia - Ariel Botti - Ariel Perez Albarracin
 
 Video de demostracion del blog:
+
+Youtube
+
+https://youtu.be/VP4SbXTpWpQ    
+
+Carpeta Drive con video
+
 https://drive.google.com/drive/folders/1ERNmGb0Ixy630j6h31EFA1ZlhM7Iu-1D?usp=sharing
 
 Instalar django
