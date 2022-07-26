@@ -2,6 +2,9 @@
 ## Proyecto final Python 31080 
 ### Andres Barcia - Ariel Botti - Ariel Perez Albarracin
 
+Video de demostracion del blog:
+https://drive.google.com/drive/folders/1ERNmGb0Ixy630j6h31EFA1ZlhM7Iu-1D?usp=sharing
+
 Instalar django
 
 ```shell
